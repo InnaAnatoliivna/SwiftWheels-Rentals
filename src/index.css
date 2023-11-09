@@ -1,0 +1,178 @@
+@import-normalize; /* bring in normalize.css styles */
+
+body {
+  position: relative;
+
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+:root {
+  --color-title: rgb(1, 1, 66);
+  --text-hover: rgb(13, 13, 255);
+  --color-border: rgb(5, 5, 53);
+  --color-label: rgb(6, 6, 103);
+  --color-input: rgb(7, 7, 139);
+  --color-btn: white;
+  --bc-btn: rgba(4, 4, 74, 0.873);
+  --bc-btn-hover: rgba(11, 11, 162, 0.648);
+  --main-bc: #a7dae7;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+.container {
+  max-width: 1280px;
+  padding: 0 15px;
+  margin: 0 auto;
+}
+
+@media screen and (min-width: 320px) {
+  .container {
+    max-width: 290px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 704px;
+    padding: 0 32px;
+  }
+
+  .form-suptext {
+    font-size: 24px;
+    margin-bottom: 22px;
+  }
+  .flex-wrap {
+    display: flex;
+  }
+  .text-message {
+    font-size: 20px;
+  }
+  .swiper {
+    width: 700px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .container {
+    max-width: 1216px;
+  }
+  .swiper {
+    width: 860px;
+  }
+}
+
+.text-message {
+  color: var(--color-input);
+  font-size: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.active {
+  border-bottom: 3.5px solid var(--bc-btn-hover);
+}
+
+.form-suptext {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 18px;
+
+  color: var(--color-title);
+  font-size: 18px;
+}
+
+/* swiper>>>>>>>>>>>>>>>>>>>>>>>>>> */
+
+.swiper {
+  max-width: 100%;
+  /* width: 860px; */
+  max-height: 100%;
+  height: 430px;
+
+  border-width: 0;
+  border: 1px solid var(--color-border);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.3),
+    0 1px 3px 1px rgba(60, 64, 67, 0.15);
+  border-radius: 8px;
+  overflow: hidden;
+
+  padding: 10px auto 70px auto;
+
+  margin-bottom: 90px;
+}
+
+.swiper-slide {
+  text-align: center;
+  font-size: 18px;
+  background: #fff;
+
+  /* Center slide text vertically  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* -----burger menu------- */
+
+.burger-menu {
+  overflow: hidden;
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  /* left: -100%; */
+  transform: translateX(-100%);
+  background-color: var(--main-bc);
+  z-index: 1000;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease-in-out;
+}
+
+.open {
+  width: 90%;
+  /* left: 0; */
+  transform: translateX(0);
+}
+
+.close {
+  transform: translateX(-100%);
+}
+
+.no-scroll {
+  overflow: hidden;
+}
