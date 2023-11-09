@@ -4,20 +4,20 @@ import ReactDOM from 'react-dom/client';
 // import { persistor, store } from './redux/store';
 import { App } from './components/App';
 import './index.css';
-// import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 // import { PersistGate } from 'redux-persist/integration/react';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    {/* <BrowserRouter basename='/SwiftWheels-Rentals'> */}
-    {/* <PersistGate loading={null} persistor={persistor}> */}
-    {/* <Provider
+    <BrowserRouter basename=''>
+      {/* <PersistGate loading={null} persistor={persistor}> */}
+      {/* <Provider
     store={store}
     > */}
-    <App />
-    {/* </Provider> */}
-    {/* </PersistGate> */}
-    {/* </BrowserRouter> */}
+      <App />
+      {/* </Provider> */}
+      {/* </PersistGate> */}
+    </BrowserRouter>
   </React.StrictMode>
 );
 
