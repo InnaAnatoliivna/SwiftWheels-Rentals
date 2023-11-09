@@ -1,5 +1,5 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+// import { Provider } from 'react-redux';
 import ReactDOM from 'react-dom/client';
 // import { persistor, store } from './redux/store';
 import { App } from './components/App';
@@ -11,11 +11,11 @@ ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     {/* <BrowserRouter basename='/SwiftWheels-Rentals'> */}
     {/* <PersistGate loading={null} persistor={persistor}> */}
-    <Provider
-    // store={store}
-    >
-      <App />
-    </Provider>
+    {/* <Provider
+    store={store}
+    > */}
+    <App />
+    {/* </Provider> */}
     {/* </PersistGate> */}
     {/* </BrowserRouter> */}
   </React.StrictMode>
