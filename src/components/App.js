@@ -10,7 +10,6 @@ const ErrorPage = lazy(() => import('../pages/ErrorPage/ErrorPage'));
 
 export const App = () => {
 
-
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
