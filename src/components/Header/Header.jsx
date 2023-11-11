@@ -1,13 +1,17 @@
 import React from 'react'
+import Container from '../Container/Container'
+import { NavLink } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <div>
+        <Container>
             <p>Swift Wheels Rentals</p>
             <nav>
-                {/* here links to pages */}
+                <NavLink to='/'>Home Page</NavLink>
+                <NavLink to='/catalog'>Catalog Page</NavLink>
+                <NavLink to='/favorites'>Favorites Page</NavLink>
             </nav>
-        </div>
+        </Container>
     )
 }
 

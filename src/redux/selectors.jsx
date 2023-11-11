@@ -1,8 +1,8 @@
 //contactsSlice
 
-export const selectAdverts = state => state.contacts.items;
-export const selectError = state => state.contacts.error;
-export const selectLoading = state => state.contacts.isLoading;
+export const selectAdverts = state => state.adverts.items;
+export const selectError = state => state.adverts.error;
+export const selectLoading = state => state.adverts.isLoading;
 
 //filterSlice
 
