@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkswiftwheels_rentals=self.webpackChunkswiftwheels_rentals||[]).push([[247],{247:(e,s,t)=>{t.r(s),t.d(s,{default:()=>c});var l=t(791),r=t(689),a=t(184);const c=()=>{const e=(0,r.s0)();return(0,l.useEffect)((()=>{const s=setTimeout((()=>{e("/")}),4e3);return()=>{clearTimeout(s)}}),[e]),(0,a.jsx)("h2",{className:"text-message",children:"404 Not Found. Will be redicted to the home page!"})}}}]);
+//# sourceMappingURL=247.0a719912.chunk.js.map

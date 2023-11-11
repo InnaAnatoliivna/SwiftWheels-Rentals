@@ -1,0 +1,21 @@
+{
+  "files": {
+    "main.css": "/InnaAnatoliivna/SwiftWheels-Rentals/static/css/main.bc61f00a.css",
+    "main.js": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/main.16a52455.js",
+    "static/js/680.3c4480c1.chunk.js": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/680.3c4480c1.chunk.js",
+    "static/js/270.9120d627.chunk.js": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/270.9120d627.chunk.js",
+    "static/js/413.a0b62ff5.chunk.js": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/413.a0b62ff5.chunk.js",
+    "static/js/247.0a719912.chunk.js": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/247.0a719912.chunk.js",
+    "index.html": "/InnaAnatoliivna/SwiftWheels-Rentals/index.html",
+    "main.bc61f00a.css.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/css/main.bc61f00a.css.map",
+    "main.16a52455.js.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/main.16a52455.js.map",
+    "680.3c4480c1.chunk.js.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/680.3c4480c1.chunk.js.map",
+    "270.9120d627.chunk.js.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/270.9120d627.chunk.js.map",
+    "413.a0b62ff5.chunk.js.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/413.a0b62ff5.chunk.js.map",
+    "247.0a719912.chunk.js.map": "/InnaAnatoliivna/SwiftWheels-Rentals/static/js/247.0a719912.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.bc61f00a.css",
+    "static/js/main.16a52455.js"
+  ]
+}
