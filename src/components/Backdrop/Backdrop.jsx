@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Backdrop = ({ onClick }) => {
+const Backdrop = ({ onClick, children }) => {
     return (
         <div
             style={{
@@ -13,7 +13,9 @@ const Backdrop = ({ onClick }) => {
                 zIndex: 100,
             }}
             onClick={onClick}
-        />
+        >
+            {children}
+        </div>
     );
 };
 

@@ -1,24 +1,18 @@
 import React from 'react'
+import { nanoid } from 'nanoid'
 import Button from '../Button/Button'
-import { FlexList, WrappImg, Wrapper } from './AdvertsContent.styled';
-import { useDispatch, useSelector } from 'react-redux';
-import { openModal } from '../../redux/reducers/modalSlice';
-import { selectIsOpenModal } from '../../redux/selectors';
-import ModalWindow from '../ModalWindow/ModalWindow';
+import { FlexList, WrappImg, Wrapper } from './AdvertsContent.styled'
 // import { useSelector } from 'react-redux'
 // import { selectLoadingAdverts } from '../../redux/selectors'
 // import Loading from '../Loading/Loading'
 
-const AdvertContent = ({ advert }) => {
-    const dispatch = useDispatch();
-    const isOpenModal = useSelector(selectIsOpenModal);
+const AdvertContent = ({ advert, handleOpenModal }) => {
     const {
         img,
         make,
         year,
         model,
         rentalPrice,
-        address,
         rentalCompany,
         type,
         id,
@@ -29,9 +23,13 @@ const AdvertContent = ({ advert }) => {
         return current.length < shortest.length ? current : shortest;
     }, functionalities[0]);
 
-    const handleOpenModal = () => {
-        console.log('open modal')
-        dispatch(openModal());
+    const addressString = advert.address;
+    const addressParts = addressString.split(',').map(part => part.trim());
+    const city = addressParts[1];
+    const country = addressParts[2];
+
+    const handleLearnMoreClick = () => {
+        handleOpenModal(advert);
     }
 
     return (
@@ -41,16 +39,15 @@ const AdvertContent = ({ advert }) => {
                 <span className='price'>{rentalPrice}</span>
             </p>
             <FlexList>
-                <li>{address[3]}  |</li>
-                <li>{address[4]}  |</li>
-                <li>{rentalCompany}  |</li>
-                <li>{model}  |</li>
-                <li>{type}  |</li>
-                <li>{id}  |</li>
-                <li>{shortestFunctionality}</li>
+                <li key={nanoid()}>{city}  |</li>
+                <li key={nanoid()}>{country}  |</li>
+                <li key={nanoid()}>{rentalCompany}  |</li>
+                <li key={nanoid()}>{model}  |</li>
+                <li key={nanoid()}>{type}  |</li>
+                <li key={nanoid()}>{id}  |</li>
+                <li key={nanoid()}>{shortestFunctionality}</li>
             </FlexList>
-            <Button onClick={handleOpenModal}>Learn more</Button>
-            {isOpenModal && <ModalWindow />}
+            <Button onClick={handleLearnMoreClick}>Learn more</Button>
         </Wrapper>
     )
 }

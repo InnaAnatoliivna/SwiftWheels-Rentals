@@ -1,6 +1,7 @@
 import styled from "styled-components"
 
 export const Icon = styled.svg`
+    cursor: pointer;
     position: absolute;
     top: 10px;
     right: 10px;

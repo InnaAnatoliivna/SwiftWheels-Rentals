@@ -1,34 +1,19 @@
 import styled from "styled-components"
 
-export const Wrapper = styled.div`
-p {
-    color: #121417;
-    font-size: 16px;
-    font-weight: 500;
-    line-height: 24px;
-    display: flex;
-    gap: 6px;
-    margin-top: 14px;
-    span{
-        &.price {
-            margin-left: auto;
-        }
-        &.accent {
-            color: var(--color-accent);
-        }
-    }
-}
+export const ContentsWrapper = styled.div`
+overflow-y: auto; 
 `
 
 export const WrappImg = styled.div`
-    max-width: 274px;
-    height: 268px;
+    max-width: 469px;
+    height: 314px;
     border: 0.1px solid transparent;
     border-radius: 14px;
     overflow: hidden;
+    margin-top: 14px;
 img { 
     display: block;
-    max-width: 100%;
+    width: 100%;
     height: 100%;
     object-fit:cover;}
     &::before {
@@ -58,3 +43,30 @@ export const FlexList = styled.ul`
     font-weight: 400;
     line-height: 18px;
 `;
+
+export const Item = styled.li`
+border-radius: 12px;
+background-color: rgba(18, 20, 23, 0.1);
+padding: 7px 14px;
+color: var(--color-text);
+`;
+
+export const LinkTel = styled.a`
+    text-decoration: none;
+    display: flex;
+    /* justify-content: start; */
+    width: 274px;
+    height: 44px;
+    padding: 12px 99px;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+    border-radius: 12px;
+    background-color: var(--color-accent);
+    transition: background-color linear 500ms;
+    color: var(--color-text-light);
+    cursor: pointer;
+    &:hover {
+        background-color: var(--color-accent-active);
+    }
+`

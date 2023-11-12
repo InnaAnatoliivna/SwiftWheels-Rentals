@@ -6,42 +6,46 @@ export const Modal = styled.div`
     background: #10100f;
     max-width: 335px;
     width: calc(100% - 40px);
-    height: 280px;
+    /* min-height: 280px; */
     position: fixed;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    padding: 48px 32px;
+    padding: 32px;
+    /* overflow-y: auto;  */
+
+    background: #efefbb; /* fallback for old browsers */
+    background: -webkit-linear-gradient(
+        to right,
+        #d4d3dd,
+        #efefbb
+  ); /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(
+        to right,
+        #d4d3dd,
+        #efefbb
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
     @media screen and (min-width: 768px) {
         max-width: 479px;
         width: 479px;
-        height: 286px;
+        /* height: 286px; */
     }
 `;
-
-export const CloseButton = styled.button`
-    width: 22px;
-    height: 22px;
-    border: none;
-    background: inherit;
-    position: absolute;
-    top: 14px;
-    right: 14px;
+export const WrapIcon = styled.div`
+    position: relative;
+`
+export const CloseButton = styled.svg`
+    stroke: var(--color-text);
     padding: 0;
-
-    svg {
-        width: 20px;
-        height: 20px;
-        transition: all 0.1s linear;
-
-        stroke: var(--color-white);
-
-        &:hover,
-        &:focus {
-        stroke: var(--color-orange);
+    transition: all 0.1s linear;
+    position: relative;
+    left: 94%;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+        stroke: black;
         }
-    }
 
     @media screen and (min-width: 768px) {
         width: 26px;
@@ -53,4 +57,5 @@ export const CloseButton = styled.button`
         }
     }
 `;
+
 

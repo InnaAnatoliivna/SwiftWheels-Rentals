@@ -1,10 +1,10 @@
 import React from 'react'
 import { Card } from './CardAdverts.styled';
 
-const CardAdverts = ({ children, customKey }) => {
+const CardAdverts = ({ children }) => {
 
     return (
-        <Card key={customKey}>
+        <Card>
             {children}
         </Card>
     )

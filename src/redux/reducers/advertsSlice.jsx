@@ -25,7 +25,7 @@ const advertsSlice = createSlice({
             .addCase(fetchAdverts.fulfilled, (state, action) => {
                 state.isLoading = false;
                 state.error = null;
-                console.log('adverts-fullfield :', action.payload);
+                // console.log('adverts-fullfield :', action.payload);
                 // state.items = action.payload;
                 // state.items.push(...action.payload);
                 action.payload.forEach(newAdvert => {
