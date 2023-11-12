@@ -5,8 +5,8 @@ import Backdrop from '../Backdrop/Backdrop'
 import { CloseButton, Modal, WrapIcon } from './ModalWindow.styled'
 import ModalWindowContent from '../ModalWindowContent/ModalWindowContent'
 import { closeModal } from '../../redux/reducers/modalSlice'
-import { useDispatch, useSelector } from 'react-redux'
-import { selectIsOpenModal } from '../../redux/selectors'
+import { useDispatch } from 'react-redux'
+// import { selectIsOpenModal } from '../../redux/selectors'
 
 const ModalWindow = ({ advert }) => {
     const dispatch = useDispatch();
