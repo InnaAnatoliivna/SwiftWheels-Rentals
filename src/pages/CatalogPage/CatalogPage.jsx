@@ -9,7 +9,7 @@ import {
 } from '../../redux/selectors'
 import { fetchAdverts } from '../../redux/operations'
 import Loading from '../../components/Loading/Loading'
-import LoadMoreButton from '../../components/LoadMore/LoadMore'
+// import LoadMoreButton from '../../components/LoadMore/LoadMore'
 import { setCurrentPage } from '../../redux/reducers/paginationSlice'
 import { LoadMoreStyled } from './CatalogPage.styled'
 
