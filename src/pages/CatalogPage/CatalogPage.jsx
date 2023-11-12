@@ -2,11 +2,16 @@ import React, { useEffect } from 'react'
 import Container from '../../components/Container/Container'
 import AdvertsList from '../../components/AdvertsList/AdvertsList'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectAdverts, selectCurrentPage, selectLoadingAdverts } from '../../redux/selectors'
+import {
+    selectAdverts,
+    selectCurrentPage,
+    selectLoadingAdverts
+} from '../../redux/selectors'
 import { fetchAdverts } from '../../redux/operations'
 import Loading from '../../components/Loading/Loading'
 import LoadMoreButton from '../../components/LoadMore/LoadMore'
 import { setCurrentPage } from '../../redux/reducers/paginationSlice'
+import { LoadMoreStyled } from './CatalogPage.styled'
 
 const CatalogPage = () => {
     const dispatch = useDispatch();
@@ -28,7 +33,7 @@ const CatalogPage = () => {
     const onLoadMore = async () => {
         dispatch(setCurrentPage(currentPage + 1));
     }
-    console.log('NEXT ADVERS :', dataAdverts)
+    // console.log('NEXT ADVERS :', dataAdverts)
 
 
     return (
@@ -36,8 +41,8 @@ const CatalogPage = () => {
             {isLoader
                 ? <Loading />
                 : (<>
-                    <AdvertsList />
-                    {currentPage < 3 && <LoadMoreButton onLoadMore={onLoadMore} />}
+                    <AdvertsList adverts={dataAdverts} />
+                    {currentPage < 3 && <LoadMoreStyled onLoadMore={onLoadMore} />}
                 </>)
             }
         </Container>

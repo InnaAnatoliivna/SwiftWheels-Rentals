@@ -20,6 +20,17 @@ export const fetchAdverts = createAsyncThunk('adverts/fetchAll', async (_, thunk
     }
 });
 
+// export const getCarItems = async () => {
+//     const { data } = await axios.get('/advert');
+//     return data;
+// };
+
+
+export const getCarById = async (id) => {
+    const params = { id };
+    const { data } = await axios.get(`/advert/`, { params });
+    return data[0];
+};
 
 
 /*

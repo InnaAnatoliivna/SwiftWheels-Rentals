@@ -1,11 +1,12 @@
 import React from 'react'
+import { Card } from './CardAdverts.styled';
 
-const CardAdverts = ({ children }) => {
+const CardAdverts = ({ children, customKey }) => {
 
     return (
-        <div>
+        <Card key={customKey}>
             {children}
-        </div>
+        </Card>
     )
 };
 

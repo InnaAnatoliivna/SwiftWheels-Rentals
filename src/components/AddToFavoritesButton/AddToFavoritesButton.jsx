@@ -1,14 +1,17 @@
 import React, { useState } from 'react'
 import sprite from '../../icon/icon-sprite.svg'
 import { useDispatch, useSelector } from 'react-redux'
-import { selectAdverts, selectFavorities } from '../../redux/selectors'
+import {
+    selectAdverts,
+    // selectFavorities
+} from '../../redux/selectors'
 import { addFavorite, deleteFavorite } from '../../redux/reducers/favoritiesSlice'
 import { Icon } from './AddToFavoritesButton.styled'
 
 const AddToFavoritesButton = ({ advertId }) => {
     const dispatch = useDispatch();
     const dataAdverts = useSelector(selectAdverts);
-    const getFavoroties = useSelector(selectFavorities)
+    // const getFavoroties = useSelector(selectFavorities)
     const [isClikedButton, setIsClikedButton] = useState(false);
 
     const handleClick = id => {
@@ -27,7 +30,7 @@ const AddToFavoritesButton = ({ advertId }) => {
             // console.log('deleted :', favorite)
         }
     }
-    console.log('CATCHED TO FAVORITIES :', getFavoroties)
+    // console.log('CATCHED TO FAVORITIES :', getFavoroties)
 
     return (
         <div onClick={() => handleClick(advertId)}>

@@ -1,5 +1,6 @@
 import React from 'react';
 import Button from '../Button/Button';
+import { Wrapper } from './LoadMore.styled';
 
 const LoadMoreButton = ({ onLoadMore }) => {
 
@@ -9,7 +10,9 @@ const LoadMoreButton = ({ onLoadMore }) => {
     };
 
     return (
-        <Button onClick={handleLoadMore}>Load more</Button>
+        <Wrapper>
+            <Button onClick={handleLoadMore}>Load more</Button>
+        </Wrapper>
     );
 }
 

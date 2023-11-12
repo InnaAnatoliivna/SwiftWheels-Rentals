@@ -1,17 +1,23 @@
 import React from 'react'
 import Container from '../Container/Container'
-import { NavLink } from 'react-router-dom'
+// import { NavLink } from 'react-router-dom'
+import { LinkLogo, LinkStyled, Section, Wrapper } from './Header.styled'
+import { Link } from 'react-router-dom'
 
 const Header = () => {
     return (
-        <Container>
-            <p>Swift Wheels Rentals</p>
-            <nav>
-                <NavLink to='/'>Home Page</NavLink>
-                <NavLink to='/catalog'>Catalog Page</NavLink>
-                <NavLink to='/favorites'>Favorites Page</NavLink>
-            </nav>
-        </Container>
+        <Section>
+            <Container>
+                <Wrapper>
+                    <p><LinkLogo to='/'>SwiftWheels Rentals</LinkLogo></p>
+                    <nav>
+                        {/* <LinkStyled to='/'>Home Page</LinkStyled> */}
+                        <LinkStyled to='/catalog'>Catalog</LinkStyled>
+                        <LinkStyled to='/favorites'>Favorites</LinkStyled>
+                    </nav>
+                </Wrapper>
+            </Container>
+        </Section>
     )
 }
 
