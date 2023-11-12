@@ -1,8 +1,13 @@
 import React from 'react'
+import Container from '../../components/Container/Container'
+
 
 const HomePage = () => {
+
     return (
-        <div>HomePage</div>
+        <Container>
+            <div>Home Page</div>
+        </Container>
     )
 }
 

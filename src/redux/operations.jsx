@@ -1,14 +1,21 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { setCurrentPage, setPerPage } from './reducers/paginationSlice';
+// import { setCurrentPage, setPerPage } from './reducers/paginationSlice';
+
 
 axios.defaults.baseURL = 'https://654e9f03cbc3253557430564.mockapi.io';
+
 
 /*
  * GET @ /adverts/fetchAll
  */
 export const fetchAdverts = createAsyncThunk('adverts/fetchAll', async (_, thunkAPI) => {
     try {
-        const { data } = await axios.get('/adverts');
+        const { pagination } = thunkAPI.getState();
+        const { currentPage, perPage } = pagination;
+
+        const { data } = await axios.get(`/adverts?page=${currentPage}&limit=${perPage}`);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -20,9 +27,9 @@ export const fetchAdverts = createAsyncThunk('adverts/fetchAll', async (_, thunk
  * engineSize, accessories, functionalities, rentalPrice, rentalCompany, 
  * address, rentalConditions, mileage }
  */
-export const addFavorite = createAsyncThunk('adverts/favorites', async (advert, thunkAPI) => {
+export const addFavorite = createAsyncThunk('adverts/addFavorites', async (advert, thunkAPI) => {
     try {
-        const { data } = await axios.post('/adverts', advert);
+        const { data } = await axios.post('/favorites', advert);
         return data;
     } catch (error) {
         return thunkAPI.rejectWithValue(error.message);
@@ -32,14 +39,25 @@ export const addFavorite = createAsyncThunk('adverts/favorites', async (advert, 
  * DELETE @ /adverts/deleteAdverts
  * idAdverts: string
  */
+
 export const deleteFavorite = createAsyncThunk('adverts/deleteAdverts', async (idAdverts, thunkAPI) => {
-    createAsyncThunk('adverts', async (_, thunkAPI) => {
+    try {
+        const { data } = await axios.delete(`/favorites/${idAdverts}`);
+        return data;
+    } catch (error) {
+        return thunkAPI.rejectWithValue(error.message);
+    }
+});
+
+export const getNextPageAdverts = createAsyncThunk('adverts/fetchNextPageAdverts',
+    async (_, thunkAPI) => {
         try {
-            const { data } = await axios.delete(`/adverts/${idAdverts}`);
-            return data;
+            const { pagination } = thunkAPI.getState();
+            const { currentPage, perPage } = pagination;
+
+            const { data } = await axios.get(`/adverts?page=${currentPage}&limit=${perPage}`);
+            return data
         } catch (error) {
             return thunkAPI.rejectWithValue(error.message);
         }
     });
-})
-
