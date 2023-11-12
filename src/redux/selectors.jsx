@@ -8,9 +8,6 @@ export const selectLoadingAdverts = state => state.adverts.isLoading;
 
 export const selectFavorities = state => state.favorities.items;
 export const selectFavoritiesID = state => state.favorities.favorities;
-// export const selectErrorFavorities = state => state.favorities.error;
-// export const selectLoadingFavorities = state => state.favorities.isLoading;
-
 
 // filterSlice
 
@@ -23,3 +20,6 @@ export const selectPagination = state => state.pagination;
 export const selectCurrentPage = state => state.pagination.currentPage;
 export const selectPerPage = state => state.pagination.perPage;
 
+// modal
+
+export const selectIsOpenModal = state => state.modal.isOpen;

@@ -17,18 +17,13 @@ import { useNavigate } from 'react-router-dom'
 const FavoritesPage = () => {
     const navigate = useNavigate();
     const getFavoritiesId = JSON.parse(useSelector(selectFavoritiesID));
-    // const getFavoritiesId = useSelector(selectFavoritiesID);
     const dataAdverts = useSelector(selectAdverts);
-    // const getFavoritiesIdAdverts = useSelector(selectFavorities);
     const [getAdverts, setAdverts] = useState([]);
 
-    //-------------------------
     useEffect(() => {
-
         const getCarData = async (id) => {
             try {
                 const data = await getCarById(id);
-
                 setAdverts((prev) => {
                     if (prev !== data) {
                         return [...prev, ...data];
@@ -39,7 +34,6 @@ const FavoritesPage = () => {
                 console.error(error.message);
             }
         };
-
         const carItems = getFavoritiesId.reduce((acc, element) => {
             const foundItem = dataAdverts.filter((item) => item.id === element)[0];
             if (foundItem) {
@@ -49,9 +43,7 @@ const FavoritesPage = () => {
             }
             return acc;
         }, []);
-
         setAdverts(carItems);
-
     }, []);
 
     return (

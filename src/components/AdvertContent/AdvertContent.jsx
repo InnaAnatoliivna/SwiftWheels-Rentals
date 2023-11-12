@@ -1,13 +1,17 @@
 import React from 'react'
 import Button from '../Button/Button'
 import { FlexList, WrappImg, Wrapper } from './AdvertsContent.styled';
+import { useDispatch, useSelector } from 'react-redux';
+import { openModal } from '../../redux/reducers/modalSlice';
+import { selectIsOpenModal } from '../../redux/selectors';
+import ModalWindow from '../ModalWindow/ModalWindow';
 // import { useSelector } from 'react-redux'
 // import { selectLoadingAdverts } from '../../redux/selectors'
 // import Loading from '../Loading/Loading'
 
 const AdvertContent = ({ advert }) => {
-    // const isLoader = useSelector(selectLoadingAdverts);
-
+    const dispatch = useDispatch();
+    const isOpenModal = useSelector(selectIsOpenModal);
     const {
         img,
         make,
@@ -25,9 +29,13 @@ const AdvertContent = ({ advert }) => {
         return current.length < shortest.length ? current : shortest;
     }, functionalities[0]);
 
+    const handleOpenModal = () => {
+        console.log('open modal')
+        dispatch(openModal());
+    }
+
     return (
         <Wrapper>
-            {/* {isLoader && <Loading />} */}
             <WrappImg><img src={img} alt='rental car' /></WrappImg>
             <p>{make}<span className='accent'>{model},</span>{year}
                 <span className='price'>{rentalPrice}</span>
@@ -41,7 +49,8 @@ const AdvertContent = ({ advert }) => {
                 <li>{id}  |</li>
                 <li>{shortestFunctionality}</li>
             </FlexList>
-            <Button>Learn more</Button>
+            <Button onClick={handleOpenModal}>Learn more</Button>
+            {isOpenModal && <ModalWindow />}
         </Wrapper>
     )
 }
