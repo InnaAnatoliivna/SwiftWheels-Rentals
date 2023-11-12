@@ -1,4 +1,6 @@
 import { configureStore } from '@reduxjs/toolkit'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
 import {
     FLUSH,
     REHYDRATE,
@@ -12,10 +14,21 @@ import { filtersReducer } from './reducers/filterSlice'
 import { favoritiesReducer } from './reducers/favoritiesSlice'
 import paginationReducer from './reducers/paginationSlice'
 
+export const LOCAL_STORAGE_KEY = 'root';
+
+const persistConfig = {
+    key: LOCAL_STORAGE_KEY,
+    storage,
+    // whitelist: ['items'],
+    whitelist: ['favorities'],
+};
+
+const persistedFavoritiesReducer = persistReducer(persistConfig, favoritiesReducer);
+
 export const store = configureStore({
     reducer: {
         adverts: advertsReducer,
-        favorities: favoritiesReducer,
+        favorities: persistedFavoritiesReducer,
         filter: filtersReducer,
         pagination: paginationReducer
     },
@@ -27,3 +40,5 @@ export const store = configureStore({
         }),
     devTools: process.env.NODE_ENV === 'development'
 });
+
+export const persistor = persistStore(store);

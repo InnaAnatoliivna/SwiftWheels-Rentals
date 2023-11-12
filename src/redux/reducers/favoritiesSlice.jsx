@@ -1,45 +1,33 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { addFavorite, deleteFavorite } from '../operations'
 
 const initialState = {
     items: [],
-    isLoading: false,
-    error: null
+    favorities: []
 };
 
 export const favoritiesSlice = createSlice({
     name: 'favorities',
     initialState,
-    reducers: {},
-    extraReducers: (builder) => {
-        builder
-            .addCase(addFavorite.pending, (state) => {
-                state.isLoading = true;
-            })
-            .addCase(deleteFavorite.pending, (state) => {
-                state.isLoading = true;
-            })
-            //
-            .addCase(addFavorite.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            .addCase(deleteFavorite.rejected, (state, action) => {
-                state.isLoading = false;
-                state.error = action.payload;
-            })
-            //
-            .addCase(addFavorite.fulfilled, (state, action) => {
-                state.isLoading = false;
-                state.error = null;
+    reducers: {
+        addFavorite(state, action) {
+            // state.items = state.items.filter((elem) => elem !== action.payload);
+            // state.items.push(action.payload);
+            // state.favorities = JSON.stringify(state.items.map(item => item.id));
+            const existingIndex = state.items.findIndex((elem) => elem.id === action.payload.id);
+            if (existingIndex === -1) {
                 state.items.push(action.payload);
-            })
-            .addCase(deleteFavorite.fulfilled, (state, action) => {
-                state.isLoading = false;
-                state.error = null;
-                state.items = state.items.filter(({ id }) => id !== action.payload);
-            })
+                state.favorities = JSON.stringify(state.items.map(item => item.id));
+            }
+        },
+        deleteFavorite(state, action) {
+            // state.items = state.items.filter((elem) => elem !== action.payload);
+            // state.favorities = JSON.stringify(state.items.map(item => item.id));
+            const filteredItems = state.items.filter((elem) => elem.id !== action.payload.id);
+            state.items = filteredItems;
+            state.favorities = JSON.stringify(filteredItems.map(item => item.id));
+        },
     }
 });
 
 export const favoritiesReducer = favoritiesSlice.reducer;
+export const { addFavorite, deleteFavorite } = favoritiesSlice.actions;

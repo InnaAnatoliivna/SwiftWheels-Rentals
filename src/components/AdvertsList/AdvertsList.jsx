@@ -1,17 +1,27 @@
 import React from 'react'
 import CardAdverts from '../../components/CardAdverts/CardAdverts'
 import AdvertContent from '../../components/AdvertContent/AdvertContent'
-import { nanoid } from 'nanoid'
+import AddToFavoritesButton from '../AddToFavoritesButton/AddToFavoritesButton'
+import { useSelector } from 'react-redux'
+import { selectAdverts } from '../../redux/selectors'
+import { Wrapper } from './AdvertsList.styled'
 
-const AdvertsList = ({ dataAdverts }) => {
+const AdvertsList = () => {
+
+    const dataAdverts = useSelector(selectAdverts);
+
     return (
-        dataAdverts.map((item) => {
+        dataAdverts.map(item => {
             return (
-                <CardAdverts key={nanoid()}>
-                    <AdvertContent advert={item} />
-                </CardAdverts>)
+                <Wrapper>
+                    <CardAdverts key={item.id}>
+                        <AdvertContent advert={item} />
+                        <AddToFavoritesButton
+                            advertId={item.id}
+                        />
+                    </CardAdverts>
+                </Wrapper>)
         })
-
     )
 }
 
